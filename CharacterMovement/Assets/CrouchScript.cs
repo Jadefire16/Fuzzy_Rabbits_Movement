@@ -8,7 +8,6 @@ public class CrouchScript : MonoBehaviour
 {
     public CharacterController _controller;
     public CapsuleCollider _collider;
-    [SerializeField] List<PhysicMaterial> physMat = new List<PhysicMaterial>();
 
     private bool isCrouched = false;
     private bool transition;
@@ -67,5 +66,10 @@ public class CrouchScript : MonoBehaviour
             yield return null;
         }
         transition = false;
+    }
+
+    public bool IsCrouched()
+    {
+        if (isCrouched) { return true; } else { return false; }
     }
 }
