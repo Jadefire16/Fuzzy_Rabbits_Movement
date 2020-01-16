@@ -23,7 +23,7 @@ public class MovementController : MonoBehaviour
     private float speed; // Our players actual speed value
     private float jumpHeight; // Our players actual jumpHeight value that we'll use
 
-    [SerializeField] private const float gCheckRadius = 0.5f; // Defines our ground check spheres' radius
+    [SerializeField] private const float gCheckRadius = 0.3f; // Defines our ground check spheres' radius
     [SerializeField] private const float gravity = -9.81f; // This wont ever change its a constant value
     [SerializeField] private float gravMultiplier = 1f; // since gravity is constant (we cant change it) we can use this multiplier to scale it
     private float baseGravMultiplier; // used to always set gravMultiplier back to it's default value
