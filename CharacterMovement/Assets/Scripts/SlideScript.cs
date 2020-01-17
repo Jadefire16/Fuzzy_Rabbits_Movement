@@ -88,4 +88,10 @@ public class SlideScript : MonoBehaviour
         rb.AddForce(transform.forward * slideForce, ForceMode.Impulse);
     }
 
+    public bool IsSliding()
+    {
+        bool X = isSliding;
+        return X;
+    }
+
 }

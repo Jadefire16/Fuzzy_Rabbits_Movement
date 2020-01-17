@@ -10,6 +10,7 @@ public class MovementController : MonoBehaviour
     #region Variables
 
     [SerializeField] private CharacterController controller;
+    StateController state;
 
     public Transform groundCheck; // used to cast a physics overlap sphere to test if we're on ground
     public LayerMask groundMask; // used to check what layers are considered ground
@@ -45,6 +46,8 @@ public class MovementController : MonoBehaviour
     {
         if (!controller) // Making sure we have a reference to our controller component
             controller = GetComponent<CharacterController>();
+        if (!state)
+            state = GetComponent<StateController>();
     }
 
     private void Start()
@@ -59,22 +62,31 @@ public class MovementController : MonoBehaviour
     {
         #region Movement
 
-        IsGrounded = Physics.CheckSphere(groundCheck.position, gCheckRadius, groundMask); // Creates a check sphere which allows us to see if we've collided with anything with the specified Layer
+        isGrounded = Physics.CheckSphere(groundCheck.position, gCheckRadius, groundMask); // Creates a check sphere which allows us to see if we've collided with anything with the specified Layer
 
-        if (isGrounded && velocity.y < 0)
+        if (isGrounded)
         {
-            gravMultiplier = baseGravMultiplier;
-            velocity.y = -2f; // Ensures we're always putting a bit of force on the player downwards to keep it on the ground
+            if(velocity.y < 0)
+            {
+                gravMultiplier = baseGravMultiplier;
+                velocity.y = -2f; // Ensures we're always putting a bit of force on the player downwards to keep it on the ground
+            }
+        }
+        else if (!isGrounded)
+        {
+            if (state.GetState() != PlayerState.Gliding)
+            {
+                if (velocity.y > 0.05)
+                {
+                    gravMultiplier = gravMin;
+                }
+                else if (velocity.y < -0.05)
+                {
+                    gravMultiplier = gravMax;
+                }
+            }
         }
 
-        if (!IsGrounded && velocity.y > 0.05)
-        {
-            gravMultiplier = gravMin;
-        }
-        else if(!IsGrounded && velocity.y < 0.05)
-        {
-            gravMultiplier = gravMax;
-        }
 
         X = Input.GetAxis("Horizontal");
         Z = Input.GetAxis("Vertical");
@@ -93,6 +105,22 @@ public class MovementController : MonoBehaviour
         #endregion Movement
     }
 
+    public Vector3 GetVelocity()
+    {
+        Vector3 X = velocity;
+        return X;
+    }
+
+    public void SetGravMult(float value)
+    {
+        gravMultiplier = value;
+    }
+    public float GetGravMult()
+    {
+        float x = gravMultiplier;
+        return x;
+    }
+
     #region Get&Set Variables
     public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
     public float X { get => x; set => x = value; }
@@ -100,3 +128,4 @@ public class MovementController : MonoBehaviour
 
     #endregion Get&Set Variables
 }
+
