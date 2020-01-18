@@ -10,11 +10,13 @@ public class StateController : MonoBehaviour
     SlideScript sController; // slide controller;
     CrouchScript cController; // crouch controller;
     GlideScript gController; // Glide controller
+    FlyScript fController; // Fly controller;
 
     bool isCrouched;
     bool isGrounded;
     bool isSliding;
     bool isGliding;
+    bool isFlying;
 
     Vector3 velocity;
 
@@ -28,6 +30,8 @@ public class StateController : MonoBehaviour
             cController = GetComponent<CrouchScript>();
         if (!gController)
             gController = GetComponent<GlideScript>();
+        if (!fController)
+            fController = GetComponent<FlyScript>();
     }
 
     private void Update()
@@ -36,6 +40,7 @@ public class StateController : MonoBehaviour
         isGrounded = mController.IsGrounded;
         isSliding = sController.IsSliding();
         isGliding = gController.IsGliding();
+        isFlying = fController.IsFlying();
         velocity = mController.GetVelocity();
 
         if (isGrounded)
@@ -64,13 +69,20 @@ public class StateController : MonoBehaviour
             }
             else if (!isGliding)
             {
-                if (velocity.y > 0.01)
+                if (isFlying)
                 {
-                    playerState = PlayerState.Jumping;
+                    playerState = PlayerState.Flying;
                 }
-                else if (velocity.y < -0.01)
+                else if (!isFlying)
                 {
-                    playerState = PlayerState.Falling;
+                    if (velocity.y > 0.01)
+                    {
+                        playerState = PlayerState.Jumping;
+                    }
+                    else if (velocity.y < -0.01)
+                    {
+                        playerState = PlayerState.Falling;
+                    }
                 }
             }
         }
@@ -89,5 +101,6 @@ public enum PlayerState
     Crouching,
     Sliding,
     Gliding,
-    Jumping
+    Jumping,
+    Flying
 }

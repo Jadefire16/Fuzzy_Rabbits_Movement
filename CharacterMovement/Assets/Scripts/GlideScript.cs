@@ -7,6 +7,7 @@ public class GlideScript : MonoBehaviour
     bool isGliding;
     [SerializeField] float glideTimer = 3f;
     [SerializeField] float maxGlideTime;
+    [SerializeField] float glideStrength = 0.4f;
     MovementController controller;
     StateController state;
     public GameObject wings;
@@ -53,15 +54,14 @@ public class GlideScript : MonoBehaviour
             {
                 StopGlide();
             }
-            else if (GlideTimer > 0.01 && Input.GetMouseButton(0))
-            {
-                GlideTimer -= Time.deltaTime;
-                
+            else if (GlideTimer > 0.025 && Input.GetMouseButton(0))
+            {               
                     Glide();
             }
             
         }
-
+        if(isGliding)
+            GlideTimer -= Time.deltaTime;
 
 
     }
@@ -70,7 +70,7 @@ public class GlideScript : MonoBehaviour
     {
         isGliding = true;
         wings.SetActive(true);
-        controller.SetGravMult(0.5f);
+        controller.SetGravMult(glideStrength);
     }
     public void StopGlide()
     {
