@@ -30,25 +30,26 @@ public class FlyScript : MonoBehaviour
             switch (state.GetState())
             {
                 case PlayerState.Grounded:
-                    return;
+                    break;
                 case PlayerState.Falling:
                     StartCoroutine(Fly(flyTime));
                     break;
                 case PlayerState.Crouching:
-                    return;
+                    break;
                 case PlayerState.Sliding:
-                    return;
+                    break;
                 case PlayerState.Gliding:
-                    return;
+                    break;
                 case PlayerState.Jumping:
                     StartCoroutine(Fly(flyTime));
                     break;
                 case PlayerState.Flying:
-                    return;
+                    break;
                 default:
-                    return;
+                    break;
             }
         }
+        else { return; }
     }
 
     IEnumerator Fly( float flyTimer )

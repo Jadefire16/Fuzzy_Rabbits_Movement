@@ -54,7 +54,7 @@ public class GlideScript : MonoBehaviour
             {
                 StopGlide();
             }
-            else if (GlideTimer > 0.025 && Input.GetMouseButton(0))
+            else if (GlideTimer > 0.025 && Input.GetMouseButton(0)) //for gliding press left
             {               
                     Glide();
             }
@@ -75,8 +75,8 @@ public class GlideScript : MonoBehaviour
     public void StopGlide()
     {
         isGliding = false;
-        if(wings.activeSelf)
-            wings.SetActive(false);
+        if(wings.activeSelf) // Returns the state of the current object (Enabled or not)
+            wings.SetActive(false); // Sets that state to false 
     }
 
     public bool IsGliding()

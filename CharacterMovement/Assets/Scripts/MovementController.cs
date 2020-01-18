@@ -74,7 +74,7 @@ public class MovementController : MonoBehaviour
         }
         else if (!isGrounded)
         {
-            if (state.GetState() != PlayerState.Gliding)
+            if (state.GetState() != PlayerState.Gliding && state.GetState() != PlayerState.Flying )
             {
                 if (velocity.y > 0.05)
                 {
