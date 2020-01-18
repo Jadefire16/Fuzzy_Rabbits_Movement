@@ -56,7 +56,7 @@ public class GlideScript : MonoBehaviour
             else if (GlideTimer > 0.01 && Input.GetMouseButton(0))
             {
                 GlideTimer -= Time.deltaTime;
-                if (!isGliding)
+                
                     Glide();
             }
             

@@ -218,11 +218,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1023811359}
     m_Modifications:
-    - target: {fileID: 5671147047461273548, guid: 8b40135f7f7d8f046a36b2104cda91e0,
-        type: 3}
-      propertyPath: m_Name
-      value: Platform 2x2x2 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 5671147047461273544, guid: 8b40135f7f7d8f046a36b2104cda91e0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -277,6 +272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671147047461273548, guid: 8b40135f7f7d8f046a36b2104cda91e0,
+        type: 3}
+      propertyPath: m_Name
+      value: Platform 2x2x2 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b40135f7f7d8f046a36b2104cda91e0, type: 3}
@@ -382,10 +382,10 @@ GameObject:
   - component: {fileID: 515188847}
   - component: {fileID: 515188846}
   - component: {fileID: 515188848}
+  - component: {fileID: 515188852}
   - component: {fileID: 515188849}
   - component: {fileID: 515188851}
   - component: {fileID: 515188850}
-  - component: {fileID: 515188852}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -490,8 +490,8 @@ MonoBehaviour:
   startSpeed: 4
   startJumpHeight: 1.5
   gravMin: 1.35
-  gravMax: 2.5
-  gravMultiplier: 1.5
+  gravMax: 4
+  gravMultiplier: 1
   isGrounded: 0
 --- !u!143 &515188847
 CharacterController:
@@ -748,11 +748,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1023811359}
     m_Modifications:
-    - target: {fileID: 5671147047461273548, guid: 8b40135f7f7d8f046a36b2104cda91e0,
-        type: 3}
-      propertyPath: m_Name
-      value: Platform 2x2x2 (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 5671147047461273544, guid: 8b40135f7f7d8f046a36b2104cda91e0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -807,6 +802,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671147047461273548, guid: 8b40135f7f7d8f046a36b2104cda91e0,
+        type: 3}
+      propertyPath: m_Name
+      value: Platform 2x2x2 (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b40135f7f7d8f046a36b2104cda91e0, type: 3}
@@ -1039,16 +1039,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 515188845}
     m_Modifications:
-    - target: {fileID: 4901897189394068721, guid: 2d93f3eaf67d9fb4a9ec01a283a74cf9,
-        type: 3}
-      propertyPath: m_Name
-      value: Wings
-      objectReference: {fileID: 0}
-    - target: {fileID: 4901897189394068721, guid: 2d93f3eaf67d9fb4a9ec01a283a74cf9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4901897189394068720, guid: 2d93f3eaf67d9fb4a9ec01a283a74cf9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1102,6 +1092,16 @@ PrefabInstance:
     - target: {fileID: 4901897189394068720, guid: 2d93f3eaf67d9fb4a9ec01a283a74cf9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901897189394068721, guid: 2d93f3eaf67d9fb4a9ec01a283a74cf9,
+        type: 3}
+      propertyPath: m_Name
+      value: Wings
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901897189394068721, guid: 2d93f3eaf67d9fb4a9ec01a283a74cf9,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1188,11 +1188,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1023811359}
     m_Modifications:
-    - target: {fileID: 5671147047461273548, guid: 8b40135f7f7d8f046a36b2104cda91e0,
-        type: 3}
-      propertyPath: m_Name
-      value: Platform 2x2x2
-      objectReference: {fileID: 0}
     - target: {fileID: 5671147047461273544, guid: 8b40135f7f7d8f046a36b2104cda91e0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1247,6 +1242,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671147047461273548, guid: 8b40135f7f7d8f046a36b2104cda91e0,
+        type: 3}
+      propertyPath: m_Name
+      value: Platform 2x2x2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b40135f7f7d8f046a36b2104cda91e0, type: 3}
